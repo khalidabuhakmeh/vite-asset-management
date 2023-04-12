@@ -1,0 +1,17 @@
+{
+  "name": "asset-management",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "typescript": "^4.6.4",
+    "vite": "^4.2.1",
+    "vite-plugin-html-resolve-alias": "^1.0.2"
+  }
+}

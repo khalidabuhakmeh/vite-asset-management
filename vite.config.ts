@@ -23,9 +23,6 @@ export default defineConfig({
         assetsInlineLimit: 0,
         emptyOutDir: true,
         rollupOptions: {
-            input: {
-                index: resolve(__dirname, "index.html")
-            },
             output: {
                 entryFileNames: entryFileNames,
                 assetFileNames: processAssetFileNames,

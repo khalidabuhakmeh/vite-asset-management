@@ -72,5 +72,14 @@ The `resolve` option in Vite is standard and lets you shorthand otherwise long a
 
 Since assets are now going through the Vite build pipeline, you can use other Vite plugins to process the files.You can perform additional tasks such as image minification. It's a win-win!
 
+Here's how to resolve assets in your `index.html` file or other HTML files in your web application.
+
+```html
+<link rel="icon" type="image/svg+xml" href="@img/vite.svg"/>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="@rss"/>
+```
+
+Notice how each value the symbols matches what we defined in our Vite configurations.
+
 This is a neat little demo project that shows what Vite is capable of doing with a little bit of thought put into the configuration. I hope you found it helpful. Cheers :)
 

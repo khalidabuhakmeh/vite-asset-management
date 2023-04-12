@@ -55,6 +55,8 @@ Additionally, some files you may want to keep with the `[hash]` added on and som
 
 There are some assets that you will want to use in HTML and in JavaScript files. In this sample, I'm using `vite.svg` in the `main.ts` file as well as in `index.html`.
 
+**Note: The following package says it's incompatible with the latest Vite version, but it's really not. So you may need to perform an `npm install --force` to get the package installed.**
+
 Using the package `vite-plugin-html-resolve-alias`, I can create resolution aliases that the plugin will process in my HTML files. Let's see what setting up aliases looks like.
 
 ```javascript

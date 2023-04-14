@@ -7,45 +7,45 @@ Typically, assets are dropped into the `/assets` folder and if you don't care ab
 If you do care about how your assets are processed, then take a look at `./config/assets.ts`, where I create a one-stop shop for managing assets.
 
 ```typescript
-import {PreRenderedAsset} from "rollup";
+import { PreRenderedAsset } from "rollup";
 
 type AssetOutputEntry = {
-    output: string,
-    regex: RegExp
-}
+  output: string;
+  regex: RegExp;
+};
 
 export const assetDir = "assets";
 export const entryFileNames = `${assetDir}/js/[name]-[hash].js`;
-export const chunkFileNames = `${assetDir}/js/[name]-[hash]-chunk.js`
+export const chunkFileNames = `${assetDir}/js/[name]-[hash]-chunk.js`;
 const assets: AssetOutputEntry[] = [
-    {
-        output: `${assetDir}/img/[name]-[hash][extname]`,
-        regex: /\.(png|jpe?g|gif|svg|webp|avif)$/
-    },
-    {
-        regex: /\.css$/,
-        output: `${assetDir}/css/[name]-[hash][extname]`
-    },
-    {
-        output: `${assetDir}/js/[name]-[hash][extname]`,
-        regex: /\.js$/
-    },
-    {
-        output: `[name][extname]`,
-        regex: /\.xml$/
-    }
+  {
+    output: `${assetDir}/img/[name]-[hash][extname]`,
+    regex: /\.(png|jpe?g|gif|svg|webp|avif)$/,
+  },
+  {
+    regex: /\.css$/,
+    output: `${assetDir}/css/[name]-[hash][extname]`,
+  },
+  {
+    output: `${assetDir}/js/[name]-[hash][extname]`,
+    regex: /\.js$/,
+  },
+  {
+    output: `[name][extname]`,
+    regex: /\.xml$/,
+  },
 ];
 
 export function processAssetFileNames(info: PreRenderedAsset): string {
-    if (info && info.name) {
-        const name = info.name as string;
-        const result = assets.find(a => a.regex.test(name));
-        if (result) {
-            return result.output;
-        }
+  if (info && info.name) {
+    const name = info.name as string;
+    const result = assets.find((a) => a.regex.test(name));
+    if (result) {
+      return result.output;
     }
-    // default since we don't have an entry
-    return `${assetDir}/[name]-[hash][extname]`
+  }
+  // default since we don't have an entry
+  return `${assetDir}/[name]-[hash][extname]`;
 }
 ```
 
@@ -75,11 +75,10 @@ Since assets are now going through the Vite build pipeline, you can use other Vi
 Here's how to resolve assets in your `index.html` file or other HTML files in your web application.
 
 ```html
-<link rel="icon" type="image/svg+xml" href="@img/vite.svg"/>
-<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="@rss"/>
+<link rel="icon" type="image/svg+xml" href="@img/vite.svg" />
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="@rss" />
 ```
 
 Notice how each value the symbols matches what we defined in our Vite configurations.
 
 This is a neat little demo project that shows what Vite is capable of doing with a little bit of thought put into the configuration. I hope you found it helpful. Cheers :)
-
